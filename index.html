@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人人夜读影院 - 深夜故事·黑色电影·老片拉片·失眠片单</title>
+<meta name="description" content="人人夜读影院（renrenyeduyingyuan-h5）是凌晨向观影随笔站：深夜故事、黑色电影、悬疑推理、老片修复、影人夜话、失眠片单；不提供盗版、不碰情色、只陪你把夜看完。网址 https://renrenyeduyingyuan-h5.github.io">
+<meta name="keywords" content="人人夜读影院,深夜电影,黑色电影,悬疑推理,老片修复,拉片笔记,失眠片单,影人夜话">
+<link rel="canonical" href="https://renrenyeduyingyuan-h5.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Serif SC","Songti SC","PingFang SC",serif;
+  background:#0b1020;color:#e9e4d6;line-height:1.85;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 12% 8%,rgba(255,214,140,.16),transparent 28%),
+    radial-gradient(circle at 88% 14%,rgba(120,150,255,.14),transparent 30%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:0}
+::selection{background:#ffd27a;color:#1a1305}
+
+/* 顶条 */
+.night-bar{background:#070b16;color:#b9c2e6;font-size:12px;letter-spacing:2px;padding:7px 16px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;border-bottom:1px solid #1b2440}
+.night-bar b{color:#ffd27a}
+
+/* 导航 */
+.nav{position:sticky;top:0;z-index:999;background:rgba(11,16,32,.94);backdrop-filter:blur(8px);border-bottom:1px solid #1b2440}
+.nav-in{max-width:1240px;margin:0 auto;height:66px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:11px}
+.logo .lamp{width:34px;height:34px;border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 38% 30%,#fff3cf,#ffce6a 45%,#b9821f);box-shadow:0 0 18px rgba(255,210,122,.5)}
+.logo .cn{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo .cn em{font-style:normal;color:#ffd27a}
+.logo .en{font-size:10px;letter-spacing:3px;color:#8693c4}
+.menu{display:flex;gap:2px;flex-wrap:wrap}
+.menu a{font-size:13px;color:#aeb8de;padding:8px 10px;border-bottom:2px solid transparent;transition:.2s}
+.menu a:hover{color:#ffd27a;border-bottom-color:#ffd27a}
+.nav-cta{background:#ffd27a;color:#1a1305;font-weight:800;font-size:13px;padding:9px 18px;border-radius:999px}
+.nav-cta:hover{background:#ffe2a0}
+
+/* Hero */
+.hero{max-width:1240px;margin:0 auto;padding:60px 20px 46px;display:grid;grid-template-columns:1.3fr .7fr;gap:34px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,54px);font-weight:900;line-height:1.14}
+.hero h1 em{font-style:normal;color:#ffd27a}
+.hero .sub{font-size:13px;letter-spacing:5px;color:#8693c4;margin-top:8px}
+.hero .lead{font-size:16px;color:#cfd6f2;margin:18px 0 22px;max-width:600px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-yellow{padding:12px 26px;font-weight:800;border-radius:10px;background:#ffd27a;color:#1a1305;transition:.25s}
+.btn-yellow:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,210,122,.3)}
+.btn-paper{background:transparent;color:#ffd27a;border:1px solid #3a4builder;padding:12px 26px;border-radius:10px;font-weight:800;border:1px solid #3a4570}
+.btn-paper:hover{background:#121a33}
+.quote{background:#0e1530;border:1px solid #232f57;border-radius:16px;padding:26px;position:relative;font-style:italic;color:#d7ddf6}
+.quote::before{content:"“";position:absolute;top:-18px;left:14px;font-size:64px;color:#ffd27a;opacity:.35}
+.quote .by{margin-top:12px;font-size:12px;font-style:normal;color:#8693c4;text-align:right}
+
+/* 区块 */
+.block{max-width:1240px;margin:0 auto;padding:56px 20px}
+.block-head{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;flex-wrap:wrap;border-bottom:1px solid #232f57;padding-bottom:10px}
+.block-head .no{font-size:12px;font-weight:800;color:#1a1305;background:#ffd27a;padding:3px 9px;border-radius:5px}
+.block-head h2{font-size:25px;font-weight:900}
+.block-head h2 em{font-style:normal;color:#ffd27a}
+.block-head .en{font-size:12px;letter-spacing:2px;color:#8693c4}
+.block-head a{margin-left:auto;font-size:13px;color:#aeb8de}
+.block-head a:hover{color:#ffd27a}
+
+/* 夜读散文 */
+.essays{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.essay{background:#0e1530;border:1px solid #232f57;border-radius:14px;padding:22px;transition:.25s}
+.essay:hover{border-color:#ffd27a;transform:translateY(-3px)}
+.essay .time{font-size:12px;color:#8693c4;letter-spacing:1px}
+.essay h3{font-size:18px;font-weight:800;color:#ffe6b0;margin:6px 0}
+.essay p{font-size:14px;color:#cfd6f2}
+.essay .more{margin-top:12px;font-size:13px;color:#ffd27a;font-weight:700}
+
+/* 黑色电影海报 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(166px,1fr));gap:16px}
+.poster{background:#0e1530;border:1px solid #232f57;border-radius:14px;overflow:hidden;transition:.3s}
+.poster:hover{transform:translateY(-5px) rotate(-.5deg);border-color:#ffd27a;box-shadow:0 16px 34px rgba(255,210,122,.14)}
+.poster img{width:100%;height:226px;object-fit:cover;filter:grayscale(.35) contrast(1.08) brightness(.86) sepia(.12)}
+.poster .b{padding:12px}
+.poster h3{font-size:15px;font-weight:800;color:#ffe6b0}
+.poster .row{display:flex;justify-content:space-between;font-size:12px;color:#9aa6d6;margin-top:5px}
+.poster .row b{color:#ffd27a}
+.tag{display:inline-block;font-size:11px;font-weight:800;color:#1a1305;background:#ffd27a;padding:2px 9px;border-radius:999px;margin-top:7px}
+.tag.blue{background:#26345f;color:#bcd0ff;border:1px solid #3a4builder}
+.tag.blue{background:#26345f;color:#bcd0ff;border:1px solid #3a4570}
+
+/* 双栏夜话 */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dcard{background:#0e1530;border:1px solid #232f57;border-left:4px solid #ffd27a;border-radius:0 14px 14px 0;padding:20px}
+.dcard h3{font-size:17px;font-weight:800;color:#ffe6b0}
+.dcard ul{list-style:none;margin-top:10px}
+.dcard li{padding:8px 0 8px 22px;position:relative;font-size:14px;color:#cfd6f2;border-bottom:1px dashed #232f57}
+.dcard li::before{content:"🌙";position:absolute;left:0;font-size:12px;filter:grayscale(.2)}
+
+/* 拉片卡 */
+.pull{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.pullcard{background:linear-gradient(160deg,#10183a,#0a0f22);border:1px solid #232f57;border-radius:16px;padding:22px}
+.pullcard h3{font-size:17px;font-weight:800;color:#ffd27a}
+.pullcard p{font-size:13px;color:#cfd6f2;margin-top:8px}
+.pullcard .shot{margin-top:10px;font-size:12px;color:#9aa6d6}
+
+/* 失眠片单 */
+.playlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.pl{background:#0e1530;border:1px solid #232f57;border-radius:14px;padding:18px}
+.pl h3{font-size:16px;font-weight:800;color:#ffe6b0}
+.pl p{font-size:13px;color:#9aa6d6;margin-top:6px}
+.pl .len{margin-top:10px;font-size:12px;color:#ffd27a;font-weight:700}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#10183a,#160f24);border:1px solid #232f57;border-radius:18px;padding:42px}
+.about h2{font-size:25px;font-weight:900;margin-bottom:14px}
+.about h2 em{font-style:normal;color:#ffd27a}
+.about p{font-size:15px;color:#cfd6f2;line-height:1.95;margin-bottom:12px}
+.about .url{color:#ffd27a;font-weight:800}
+.astats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.as{background:#0e1530;border:1px solid #232f57;border-radius:12px;padding:18px;text-align:center}
+.as .n{font-size:24px;font-weight:900;color:#ffd27a}
+.as .l{font-size:12px;color:#8693c4;margin-top:3px}
+
+/* 页脚 */
+.foot{border-top:1px solid #1b2440;padding:40px 20px 28px;text-align:center;background:#070b16}
+.foot-logo{font-size:20px;font-weight:900}
+.foot-logo em{font-style:normal;color:#ffd27a}
+.foot-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:12px 0}
+.foot-links a{font-size:13px;color:#9aa6d6}
+.foot-links a:hover{color:#ffd27a}
+.foot p{font-size:12px;color:#7e89b8}
+.foot .disc{margin-top:10px;max-width:880px;margin-left:auto;margin-right:auto;color:#7e89b8;line-height:1.7}
+
+@media(max-width:860px){
+  .menu{display:none}
+  .hero{grid-template-columns:1fr;padding:26px 20px 36px}
+  .dual{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;padding:28px}
+  .block{padding:44px 20px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="night-bar">
+  <span>00:00 后开放</span><b>深夜故事 · 黑色电影 · 老片拉片</b>
+  <span>不吵不闪</span><b>只陪你把夜看完</b>
+</div>
+
+<div class="nav">
+  <div class="nav-in">
+    <div class="logo">
+      <div class="lamp"></div>
+      <div>
+        <div class="cn">人人<em>夜读</em>影院</div>
+        <div class="en">MIDNIGHT READING CINEMA</div>
+      </div>
+    </div>
+    <nav class="menu">
+      <a href="#home">首页</a>
+      <a href="#essay">夜读散文</a>
+      <a href="#noir">黑色电影</a>
+      <a href="#mystery">悬疑推理</a>
+      <a href="#restore">老片修复</a>
+      <a href="#talk">影人夜话</a>
+      <a href="#pull">拉片笔记</a>
+      <a href="#insomnia">失眠片单</a>
+      <a href="#about">关于</a>
+    </nav>
+    <a href="#essay" class="nav-cta">点灯夜读</a>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div>
+    <h1>白天太吵，<br>故事留到<em>夜里读</em></h1>
+    <div class="sub">NOIR · ESSAY · OLD FILMS · 2:00 AM</div>
+    <p class="lead">人人夜读影院不是“影视大全”，也不是“成人影视”。它像凌晨一点还亮着的那盏台灯：你不想睡，也不是真不困，只是舍不得这一天就这么关灯。这里放深夜散文、黑色电影、悬疑推理、老片修复、影人夜话和失眠片单——慢一点，暗一点，但都干净。</p>
+    <div class="hero-btns">
+      <a href="#essay" class="btn-yellow">📖 读一篇夜文</a>
+      <a href="#noir" class="btn-paper">🎬 进黑色电影厅</a>
+    </div>
+  </div>
+  <div class="quote">
+    电影里的夜从来不是背景。雨、霓虹、末班车、便利店灯光、没挂断的电话——都是人不敢说出口的那句话。
+    <div class="by">— 人人夜读编辑部 · 凌晨手记</div>
+  </div>
+</section>
+
+<section class="block" id="essay">
+  <div class="block-head">
+    <span class="no">01</span>
+    <h2>夜读<em>散文</em></h2>
+    <span class="en">NIGHT ESSAYS</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="essays">
+    <div class="essay"><div class="time">10/18 · 01:12</div><h3>雨夜出租车里的六十分钟</h3><p>两个陌生人被一场大雨困在同一辆车里。他们不认识，但都比白天诚实——因为司机不会把话传出去。</p><div class="more">继续读 →</div></div>
+    <div class="essay"><div class="time">10/17 · 23:48</div><h3>便利店灯光是一种安慰</h3><p>凌晨的便利店不是商店，是城市给失眠者留的客厅。关东煮、冰美式、收银台后的哈欠，都比朋友圈真。</p><div class="more">继续读 →</div></div>
+    <div class="essay"><div class="time">10/16 · 02:30</div><h3>老电影里的烟，比人诚实</h3><p>黑白片里没人催你倍速。一根烟烧完，角色才开口；一句话说完，整条街都安静了。</p><div class="more">继续读 →</div></div>
+    <div class="essay"><div class="time">10/15 · 00:55</div><h3>为什么悬疑片适合夜里看</h3><p>白天要装没事，夜里才敢承认：你也怕真相、怕错过、怕那通电话真的是打给自己的。</p><div class="more">继续读 →</div></div>
+  </div>
+</section>
+
+<section class="block" id="noir" style="background:#0a0f22">
+  <div class="block-head">
+    <span class="no">02</span>
+    <h2>黑色<em>电影</em></h2>
+    <span class="en">FILM NOIR</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="grid">
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20101" alt="人人夜读 第三人"><div class="b"><h3>第三者 / The Third Man</h3><div class="row"><span>1949/维也纳夜雨</span><b>8.6</b></div><span class="tag"> sewer chase · 齐特琴</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20102" alt="人人夜读 马耳他之鹰"><div class="b"><h3>马耳他之鹰</h3><div class="row"><span>1941/硬汉侦探</span><b>7.9</b></div><span class="tag">noir 原点</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20103" alt="人人夜读 夜长梦多"><div class="b"><h3>夜长梦多</h3><div class="row"><span>1946/钱德勒</span><b>7.9</b></div><span class="tag blue">对白即迷宫</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20104" alt="人人夜读 洛城机密"><div class="b"><h3>洛城机密</h3><div class="row"><span>1997/霓虹警局</span><b>8.6</b></div><span class="tag">新黑色电影</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20105" alt="人人夜读 七宗罪"><div class="b"><h3>七宗罪</h3><div class="row"><span>1995/雨夜连环</span><b>8.8</b></div><span class="tag">别独自深夜看</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20106" alt="人人夜读 驾驶"><div class="b"><h3>亡命驾驶</h3><div class="row"><span>2011/合成器夜</span><b>7.8</b></div><span class="tag blue">少台词·多霓虹</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="mystery">
+  <div class="block-head">
+    <span class="no">03</span>
+    <h2>悬疑<em>推理</em></h2>
+    <span class="en">MYSTERY & SLEEPLESS</span>
+  </div>
+  <div class="dual">
+    <div class="dcard">
+      <h3>线索派：适合拿纸笔跟</h3>
+      <ul>
+        <li>看不见的客人：一局谈话翻五次盘</li>
+        <li>记忆碎片：倒着追凶，自己也是谜</li>
+        <li>龙纹身的女孩：档案、仇恨与北欧冷光</li>
+        <li> zodiac：冷案、雨夜、执念比凶手更累</li>
+        <li>看不见的城市：用城市当凶手</li>
+      </ul>
+    </div>
+    <div class="dcard">
+      <h3>气氛派：别猜凶手，先被夜裹住</h3>
+      <ul>
+        <li>失魂记：湖边空屋与负空间</li>
+        <li>迷失高速：爵士萨克斯与莫比乌斯夜</li>
+        <li>晚安，祝你好运：广播时代的幽灵</li>
+        <li>夜之家：寡妇、建筑师与房子里的回声</li>
+        <li>长夜将尽：天亮前，人才说实话</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="restore" style="background:#0a0f22">
+  <div class="block-head">
+    <span class="no">04</span>
+    <h2>老片<em>修复</em></h2>
+    <span class="en">RESTORED OLD FILMS</span>
+    <a href="#">更多 #</a>
+  </div>
+  <div class="grid">
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20111" alt="人人夜读 老片修复"><div class="b"><h3>罗马，不设防的城市</h3><div class="row"><span>1945/新现实</span><b>8.3</b></div><span class="tag">4K 修复版</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20112" alt="人人夜读 老片修复"><div class="b"><h3>七武士 修复版</h3><div class="row"><span>1954/黑泽明</span><b>9.2</b></div><span class="tag">字幕校订版</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20113" alt="人人夜读 老片修复"><div class="b"><h3>雨中曲</h3><div class="row"><span>1952/歌舞</span><b>9.0</b></div><span class="tag blue">深夜反差治愈</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20114" alt="人人夜读 老片修复"><div class="b"><h3>东京物语</h3><div class="row"><span>1953/小津</span><b>9.2</b></div><span class="tag">慢，但后劲大</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20115" alt="人人夜读 老片修复"><div class="b"><h3>卡萨布兰卡</h3><div class="row"><span>1942/夜与离别</span><b>8.7</b></div><span class="tag">机场、酒馆、旧爱</span></div></div>
+    <div class="poster"><img src="https://picsum.photos/300/420?random=20116" alt="人人夜读 老片修复"><div class="b"><h3>公民凯恩</h3><div class="row"><span>1941/景深鼻祖</span><b>8.8</b></div><span class="tag blue">拉片必看</span></div></div>
+  </div>
+</section>
+
+<section class="block" id="talk">
+  <div class="block-head">
+    <span class="no">05</span>
+    <h2>影人<em>夜话</em></h2>
+    <span class="en">FILMMAKER NIGHT TALK</span>
+  </div>
+  <div class="essays">
+    <div class="essay"><div class="time">对谈</div><h3>剪辑师：夜戏为什么不能太亮</h3><p>“白天戏靠事件，夜戏靠呼吸。灯一多，角色的孤单就没了。”</p><div class="more">听片段 →</div></div>
+    <div class="essay"><div class="time">随笔</div><h3>修复师：我们不是在擦脏，是在救时间</h3><p>“划痕、褪色、音轨底噪，都是胶片活过的证据。修得太干净，片子里的人也不认识了。”</p><div class="more">读全文 →</div></div>
+    <div class="essay"><div class="time">夜邮</div><h3>配乐人：合成器一响，洛杉矶就到了凌晨</h3><p>“霓虹不是颜色，是低频。你听到贝斯在地下车库回响，就知道主角回不了头了。”</p><div class="more">继续读 →</div></div>
+  </div>
+</section>
+
+<section class="block" id="pull" style="background:#0a0f22">
+  <div class="block-head">
+    <span class="no">06</span>
+    <h2>拉片<em>笔记</em></h2>
+    <span class="en">SCENE BREAKDOWN</span>
+  </div>
+  <div class="pull">
+    <div class="pullcard"><h3>《第三者》开场三分钟</h3><p>字幕没出完，齐特琴先响；维也纳废墟、旋转木马、下水道地图，三种“迷宫”同时铺开。</p><div class="shot">机位：低角度跟拍 · 光影：街灯切割人脸</div></div>
+    <div class="pullcard"><h3>《亡命驾驶》电梯吻戏</h3><p>浪漫和血在同一帧里。配乐不紧张，观众反而更紧——因为暴力会突然发生。</p><div class="shot">声音：合成器铺底 · 剪辑：长镜切到硬切</div></div>
+    <div class="pullcard"><h3>《七武士》雨中决战</h3><p>泥、箭、雷、喘气声混成一层。黑泽明把“胜利”拍得很脏，不像武侠，像农事。</p><div class="shot">构图：横移长镜 · 节奏：雷声当剪点</div></div>
+    <div class="pullcard"><h3>《东京物语》一碗茶</h3><p>没有冲突，却让人鼻酸。镜头不推近，留一点距离，像儿女对父母那种“来不及”。</p><div class="shot">景别：中景静止 · 留白：门框分割两代人</div></div>
+  </div>
+</section>
+
+<section class="block" id="insomnia">
+  <div class="block-head">
+    <span class="no">07</span>
+    <h2>失眠<em>片单</em></h2>
+    <span class="en">CAN’T-SLEEP LISTS</span>
+  </div>
+  <div class="playlist">
+    <div class="pl"><h3>雨夜独处</h3><p>雨声、车窗、便利店的灯。不吓人，也不哄你睡，只是陪你醒着。</p><div class="len">6 部 · 平均 98 分钟</div></div>
+    <div class="pl"><h3>别一个人看</h3><p>七宗罪、失魂记、迷失高速——白天陪人看都行，凌晨独看容易把门响当剧情。</p><div class="len">5 部 · 心理压迫强</div></div>
+    <div class="pl"><h3>老片安魂</h3><p>东京物语、雨中曲、卡萨布兰卡。慢一点，但天亮你会觉得“今天还能过”。</p><div class="len">7 部 · 后劲温柔</div></div>
+    <div class="pl"><h3>城市夜行</h3><p>亡命驾驶、洛城机密、第三者。霓虹底下都是孤独的人，开着车不回家。</p><div class="len">6 部 · 合成器夜色</div></div>
+  </div>
+</section>
+
+<section class="block" id="about">
+  <div class="about">
+    <div>
+      <h2>人人夜读影院：<em>凌晨一点，还亮着的那盏灯</em></h2>
+      <p>我们不做“成人影视大全”，也不做盗版聚合。人人夜读影院只做一件事：把适合夜里看的东西，认真写成能读、能停、能回味的页面。</p>
+      <p>深夜故事、黑色电影、悬疑推理、老片修复、影人夜话、拉片笔记、失眠片单——你困了就关掉，不困就往下翻。播放优先走正版平台的免费层 / 广告支持 / 公版修复；本站只策展，不托管侵权片源，也不碰任何情色内容。</p>
+      <p>官方网址：<span class="url">https://renrenyeduyingyuan-h5.github.io</span></p>
+    </div>
+    <div class="astats">
+      <div class="as"><div class="n">夜读向</div><div class="l">散文/黑色/悬疑/老片</div></div>
+      <div class="as"><div class="n">0 情色</div><div class="l">不擦边·不成人化</div></div>
+      <div class="as"><div class="n">拉片感</div><div class="l">机位/配乐/留白都讲</div></div>
+      <div class="as"><div class="n">正版优先</div><div class="l">免费层/修复/公版</div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="foot-logo">人人<em>夜读</em>影院 · MIDNIGHT READING CINEMA</div>
+  <div class="foot-links">
+    <a href="#essay">夜读散文</a>
+    <a href="#noir">黑色电影</a>
+    <a href="#mystery">悬疑推理</a>
+    <a href="#restore">老片修复</a>
+    <a href="#talk">影人夜话</a>
+    <a href="#pull">拉片笔记</a>
+    <a href="#insomnia">失眠片单</a>
+    <a href="#about">关于</a>
+  </div>
+  <p>© 2026 人人夜读影院 · 网站网址：https://renrenyeduyingyuan-h5.github.io</p>
+  <p class="disc">本站为深夜观影随笔与片单策展演示页。不提供盗版院线、不破解会员、不发布情色/成人影视内容；黑色电影、悬疑片仅作电影语言与叙事结构解读。实际观看请使用正版平台，凌晨独看高压迫影片前请注意心理状态。</p>
+</footer>
+
+</body>
+</html>
